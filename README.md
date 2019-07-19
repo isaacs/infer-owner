@@ -1,11 +1,11 @@
-# @npmcli/infer-owner
+# infer-owner
 
 Infer the owner of a path based on the owner of its nearest existing parent
 
 ## USAGE
 
 ```js
-const inferOwner = require('@npmcli/infer-owner')
+const inferOwner = require('infer-owner')
 
 inferOwner('/some/cache/folder/file').then(owner => {
   // owner is {uid, gid} that should be attached to
