@@ -1,6 +1,6 @@
 {
   "name": "@npmcli/infer-owner",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Infer the owner of a path based on the owner of its nearest existing parent",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://izs.me)",
   "license": "ISC",
@@ -16,12 +16,8 @@
     "tap": "^12.4.2"
   },
   "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/npm/infer-owner.git"
-  },
+  "repository": "https://github.com/npm/infer-owner",
   "publishConfig": {
     "access": "public"
-  },
-  "repository": "https://github.com/npm/infer-owner"
+  }
 }
