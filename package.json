@@ -1,6 +1,6 @@
 {
   "name": "infer-owner",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Infer the owner of a path based on the owner of its nearest existing parent",
   "author": "Isaac Z. Schlueter <i@izs.me> (https://izs.me)",
   "license": "ISC",
