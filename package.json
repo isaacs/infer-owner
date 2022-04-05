@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "mutate-fs": "^2.1.1",
-    "tap": "^12.4.2"
+    "tap": "^16.0.1"
   },
   "main": "index.js",
   "repository": "https://github.com/npm/infer-owner",
