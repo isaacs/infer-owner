@@ -2,14 +2,14 @@ const cache = new Map()
 const fs = require('fs')
 const { dirname, resolve } = require('path')
 
-
 const lstat = path => new Promise((res, rej) =>
   fs.lstat(path, (er, st) => er ? rej(er) : res(st)))
 
 const inferOwner = path => {
   path = resolve(path)
-  if (cache.has(path))
+  if (cache.has(path)) {
     return Promise.resolve(cache.get(path))
+  }
 
   const statThen = st => {
     const { uid, gid } = st
@@ -28,8 +28,9 @@ const inferOwner = path => {
 
 const inferOwnerSync = path => {
   path = resolve(path)
-  if (cache.has(path))
+  if (cache.has(path)) {
     return cache.get(path)
+  }
 
   const parent = dirname(path)
 
@@ -55,8 +56,9 @@ const inferOwnerSync = path => {
 const inflight = new Map()
 module.exports = path => {
   path = resolve(path)
-  if (inflight.has(path))
+  if (inflight.has(path)) {
     return Promise.resolve(inflight.get(path))
+  }
   const p = inferOwner(path).then(owner => {
     inflight.delete(path)
     return owner

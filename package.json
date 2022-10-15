@@ -2,25 +2,46 @@
   "name": "infer-owner",
   "version": "1.0.4",
   "description": "Infer the owner of a path based on the owner of its nearest existing parent",
-  "author": "Isaac Z. Schlueter <i@izs.me> (https://izs.me)",
+  "author": "GitHub Inc.",
   "license": "ISC",
   "scripts": {
-    "test": "tap -J test/*.js --100",
-    "snap": "TAP_SNAPSHOT=1 tap -J test/*.js --100",
-    "preversion": "npm test",
-    "postversion": "npm publish",
-    "postpublish": "git push origin --follow-tags"
+    "test": "tap",
+    "snap": "tap",
+    "lint": "eslint \"**/*.js\"",
+    "postlint": "template-oss-check",
+    "template-oss-apply": "template-oss-apply --force",
+    "lintfix": "npm run lint -- --fix",
+    "posttest": "npm run lint"
   },
   "devDependencies": {
+    "@npmcli/eslint-config": "^4.0.0",
+    "@npmcli/template-oss": "4.6.0",
     "mutate-fs": "^2.1.1",
-    "tap": "^16.0.1"
+    "tap": "^16.3.0"
   },
   "main": "index.js",
-  "repository": "https://github.com/npm/infer-owner",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/npm/infer-owner.git"
+  },
   "publishConfig": {
     "access": "public"
   },
   "files": [
-    "index.js"
-  ]
+    "bin/",
+    "lib/"
+  ],
+  "engines": {
+    "node": "^14.17.0 || ^16.13.0 || >=18.0.0"
+  },
+  "templateOSS": {
+    "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
+    "version": "4.6.0"
+  },
+  "tap": {
+    "nyc-arg": [
+      "--exclude",
+      "tap-snapshots/**"
+    ]
+  }
 }
